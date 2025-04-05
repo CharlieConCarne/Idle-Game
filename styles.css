@@ -1,11 +1,6 @@
-
-
-
 * {
     color: black;
     padding: 5px;
-
-
 }
 
 body {
@@ -19,7 +14,6 @@ body {
     font-family: "Spectral", serif;
     font-weight: 300;
     font-style: normal;
-
 }
 
 
@@ -29,16 +23,11 @@ img {
     background: transparent;
 }
 
-
 .body-styling {
- 
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    font-family: 'Jetbrains mono', sans-serif;
-
-
 }
 
 .game-info-styling { 
@@ -59,14 +48,12 @@ img {
     width: 150px;
     margin-left: 320px;
     margin-top: -220px;
-
 }
 
 #demon2-img img {
     width: 150px;
     margin-right: 320px;
     margin-top: -220px;
-
 }
 
 footer {
@@ -77,7 +64,6 @@ footer {
 
 footer button {
     border: 3px solid black;
-
 }
 
 button:active {
@@ -115,11 +101,9 @@ button {
 .side-menu {
     display: flex;
     flex-direction: row;
-
 }
 
 .side-menu button {
-
     border-radius: 3px;
 }
 
@@ -130,7 +114,6 @@ button {
     font-size: 14px;
     font-weight: bold;
     gap: 15px;
-
 }
 
 .manual-upgrades {
@@ -147,8 +130,6 @@ button {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    
-
 }
 
 #clear-save-data {

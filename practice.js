@@ -64,7 +64,7 @@ function savedInfo() {
 
     if (savedMPS) {
         MPS = parseFloat(savedMPS)
-                mpsDisplay.textContnet = "§ " + MPS + " Per Second"
+                mpsDisplay.textContent = "§ " + MPS + " Per Second"
     }
 
     if (savedLvl1) {

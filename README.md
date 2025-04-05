@@ -43,7 +43,6 @@ Soul Reaper is an idle game where players collect souls (§) by clicking and pur
 2. Open `index.html` in your web browser
 3. No additional dependencies required - just pure HTML, CSS, and JavaScript!
 
-- Font: Black Witcher
 
 ---
 
