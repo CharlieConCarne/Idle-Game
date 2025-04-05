@@ -154,14 +154,14 @@ function level1Clicker() {
         currentMoney -= cost
         level1Upgrades++
         MPS++
-        clickerLvl1Label.textContent = "§" + cost
+        
         level1Demon.innerHTML = `Lesser Demons: ${level1Upgrades}`
 
 
    } else {
     console.log("You do not have enough Money for this upgrade!")
    }
-
+    clickerLvl1Label.textContent = `§ ${cost}`
 }
 
 function level2Clicker() {
@@ -170,12 +170,12 @@ function level2Clicker() {
         currentMoney -= cost
         level2Upgrades++
         MPS += 5
-        clickerLvl2Label.textContent = "§" + cost
+       
         level2Demon.innerHTML = `Lesser Demon Packs: ${level2Upgrades}`
     } else {
         console.log("You do not have enough Money for this upgrade!")
     }
- 
+     clickerLvl2Label.textContent = `§ ${cost}`
  }
 
  function level3Clicker() {
@@ -184,13 +184,12 @@ function level2Clicker() {
         currentMoney -= cost
         level3Upgrades++
         MPS += 100
-        clickerLvl3Label.textContent = "§" + cost
         level3Demon.innerHTML = `Lesser Demon Armies: ${level3Upgrades}`
 
     } else {
         console.log("You do not have enough Money for this upgrade!")
     }
- 
+    clickerLvl3Label.textContent = "§" + cost
  }
 
  function level4Clicker() {
@@ -199,13 +198,12 @@ function level2Clicker() {
         currentMoney -= cost
         level4Upgrades++
         MPS += 1000
-        clickerLvl4Label.textContent = "§" + cost
         level4Demon.innerHTML = `Demon Lords: ${level4Upgrades}`
 
     } else {
         console.log("You do not have enough Money for this upgrade!")
     }
- 
+    clickerLvl4Label.textContent = "§" + cost
  }
 
 
