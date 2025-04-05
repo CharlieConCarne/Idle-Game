@@ -140,15 +140,10 @@ function level1Clicker() {
         currentMoney -= cost
         level1Upgrades++
         MPS++
-        
         level1Demon.innerHTML = `Lesser Demons: ${level1Upgrades}`
-
-        clickerLvl1.textContent = `§ ${cost}`
-
-   } else {
-    console.log("You do not have enough Money for this upgrade!")
-   }
-
+        cost = Math.floor(lvl1BaseCost + (level1Upgrades ** 1.87))
+    } 
+    clickerLvl1.textContent = `§ ${cost}`
 }
 
 function level2Clicker() {
@@ -157,42 +152,35 @@ function level2Clicker() {
         currentMoney -= cost
         level2Upgrades++
         MPS += 5
-       
         level2Demon.innerHTML = `Lesser Demon Packs: ${level2Upgrades}`
-
-         clickerLvl2.textContent = `§ ${cost}`
-    } else {
-        console.log("You do not have enough Money for this upgrade!")
+        cost = Math.floor(lvl2BaseCost + (level2Upgrades ** 3.47))
     }
- }
+    clickerLvl2.textContent = `§ ${cost}`
+}
 
- function level3Clicker() {
+function level3Clicker() {
     let cost = Math.floor(lvl3BaseCost + (level3Upgrades ** 5.47))
     if (currentMoney >= cost) {
         currentMoney -= cost
         level3Upgrades++
         MPS += 100
         level3Demon.innerHTML = `Lesser Demon Armies: ${level3Upgrades}`
-
-    } else {
-        console.log("You do not have enough Money for this upgrade!")
+        cost = Math.floor(lvl3BaseCost + (level3Upgrades ** 5.47))
     }
     clickerLvl3.textContent = `§ ${cost}`
- }
+}
 
- function level4Clicker() {
+function level4Clicker() {
     let cost = Math.floor(lvl4BaseCost + (level4Upgrades ** 10.47))
     if (currentMoney >= cost) {
         currentMoney -= cost
         level4Upgrades++
         MPS += 1000
         level4Demon.innerHTML = `Demon Lords: ${level4Upgrades}`
-
-    } else {
-        console.log("You do not have enough Money for this upgrade!")
-    }
+        cost = Math.floor(lvl4BaseCost + (level4Upgrades ** 10.47))
+    } 
     clickerLvl4.textContent = `§ ${cost}`
- }
+}
 
 
 function updateGameLoop() {
@@ -261,7 +249,8 @@ setInterval(function updateMoneyCount() {
         mpsDisplay.textContent = "§" + (MPS * 2) + " Per Second" 
     } else {
         gameInfo.textContent = "Game Speed is 1x.."
-        mpsDisplay.textContent = "§" + MPS + " Per Second"
+        mpsDisplay.textContent = "§ " + MPS + " Per Second"
+
     }
 }, 10)
 

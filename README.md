@@ -2,11 +2,14 @@
 
 A browser-based idle/incremental game where players reap souls to strengthen the armies of Hell.
 
-![Game Screenshot](img/screenshot.png) <!-- Add a screenshot of your game here -->
+![Game Screenshot](img/screenshot.png)
 
 ## Description
 
-Soul Reaper is an idle game where players collect souls (§) by clicking and purchasing upgrades to increase their passive income. Build your demonic army with various tiers of demons to maximize your soul collection rate.
+Soul Reaper is an idle game where players collect souls (§) by clicking and purchasing upgrades to increase their passive income. Build your demonic army with various tiers of demons to maximize your soul collection rate. 
+
+I have just completed the Learn Javascript course with scrimba and the freeCodeCamp responsive web design course and did my best to attempt an idle game with 
+the knowledge ive gained, I used AI to make the images, ∆the background and to generate some of the readme contents but the code is 100% beginner code written all by me over the course of 3 days give or take. 
 
 ## Features
 
