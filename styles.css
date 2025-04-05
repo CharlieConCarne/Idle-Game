@@ -1,7 +1,4 @@
-* {
-    color: black;
-    padding: 5px;
-}
+
 
 body {
     background-image: url(img/background.png);
@@ -16,12 +13,6 @@ body {
     font-style: normal;
 }
 
-
-
-img {
-    background-color: transparent;
-    background: transparent;
-}
 
 .body-styling {
     display: flex;
@@ -56,25 +47,8 @@ img {
     margin-top: -220px;
 }
 
-footer {
-    margin-top: 10px;
-    margin-right: 350px;
-    text-align: right;
-}
-
-footer button {
-    border: 3px solid black;
-}
-
 button:active {
     transform: scale(1.05)
-}
-
-button img {
-    width: 175px;
-    border: none;
-    background-color: transparent;
-    background: transparent;
 }
 
 button {
@@ -82,6 +56,7 @@ button {
     background-color: transparent;
     background: transparent;
 }
+
 .score-info {
     display: flex;
     flex-direction: column;
@@ -89,9 +64,7 @@ button {
     gap: 35px;
 }
 
-#upgrade-info {
-    list-style: none;
-}
+
 
 .score-info img {
     width: 600px;
@@ -103,9 +76,19 @@ button {
     flex-direction: row;
 }
 
-.side-menu button {
-    border-radius: 3px;
+.side-menu img {
+    width: 180px;
 }
+
+.side-menu button {
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    align-self: center;
+}
+
 
 .upgrades-container {
     display: flex;
@@ -113,13 +96,19 @@ button {
     text-align: center;
     font-size: 14px;
     font-weight: bold;
-    gap: 15px;
+    gap: 5px;
+
+}
+
+#upgrade-info {
+    list-style: none;
 }
 
 .manual-upgrades {
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
     font-size: 14px;
     font-weight: bold;
     gap: 15px;
@@ -156,4 +145,6 @@ button {
 
 
 }
+
+
 

@@ -1,27 +1,31 @@
 // VARIABLES 
-let moneyElement = document.getElementById("clickers");
-let manualClick = document.getElementById("manual-clicker")
-let manualClickX2 = document.getElementById("manual-x2");
-let gameSpeedx2 = document.getElementById("game-speed")
-let clickerLvl1 = document.getElementById("lvl1-clicker");
-let clickerLvl1Label = document.getElementById("lvl1-cost");
-let clickerLvl2 = document.getElementById("lvl2-clicker");
-let clickerLvl2Label = document.getElementById("lvl2-cost");
-let clickerLvl3 = document.getElementById("lvl3-clicker");
-let clickerLvl3Label = document.getElementById("lvl3-cost");
-let clickerLvl4 = document.getElementById("lvl4-clicker");
-let clickerLvl4Label = document.getElementById("lvl4-cost");
-let mpsDisplay = document.getElementById("MPS-Number");
-let gameInfo = document.getElementById("game-info"); 
+const moneyElement = document.getElementById("clickers");
+const manualClick = document.getElementById("manual-clicker")
+const manualClickX2 = document.getElementById("manual-x2");
+const gameSpeedx2 = document.getElementById("game-speed")
+const clickerLvl1 = document.getElementById("lvl1-clicker");
+const clickerLvl2 = document.getElementById("lvl2-clicker");
+const clickerLvl3 = document.getElementById("lvl3-clicker");
+const clickerLvl4 = document.getElementById("lvl4-clicker");
+const mpsDisplay = document.getElementById("MPS-Number");
+const gameInfo = document.getElementById("game-info"); 
 const clearSave = document.getElementById("clear-save-data");
-let demon2Img = document.getElementById("demon2-img");
-let level1Demon = document.getElementById("level1-demon");
-let level2Demon = document.getElementById("level2-demon");
-let level3Demon = document.getElementById("level3-demon");
-let level4Demon = document.getElementById("level4-demon");
-let MPS = 0;
-let currentMoney = 0;
-let gameLoop = null;
+const demon2Img = document.getElementById("demon2-img");
+const level1Demon = document.getElementById("level1-demon");
+const level2Demon = document.getElementById("level2-demon");
+const level3Demon = document.getElementById("level3-demon");
+const level4Demon = document.getElementById("level4-demon");
+
+
+// EVENT LISTENERS
+manualClick.addEventListener("click", manualClicker)
+manualClickX2.addEventListener("click", manualUpgrade)
+gameSpeedx2.addEventListener("click", speedUpgrade)
+clickerLvl1.addEventListener("click", level1Clicker)
+clickerLvl2.addEventListener("click", level2Clicker)
+clickerLvl3.addEventListener("click", level3Clicker)
+clickerLvl4.addEventListener("click", level4Clicker)
+clearSave.addEventListener("click", clearData)
 
 // BASECOSTS
 const lvl1BaseCost = 50;
@@ -29,10 +33,18 @@ const lvl2BaseCost = 500;
 const lvl3BaseCost = 10000;
 const lvl4BaseCost = 1000000;
 
-
+// UPGRADES
+let level1Upgrades = 0;
+let level2Upgrades = 0;
+let level3Upgrades = 0;
+let level4Upgrades = 0;
+let manualClickerUpgrade = false;
+let gameSpeedUpgrade = false;
+let MPS = 0;
+let currentMoney = 0;
+let gameLoop = null;
 
 function savedInfo() {
-    // Get the saved money value from localStorage
     const savedMoney = localStorage.getItem("Money"); 
     const savedMPS = localStorage.getItem("MPS"); 
     const savedLvl1 = localStorage.getItem("lvl1"); 
@@ -43,11 +55,8 @@ function savedInfo() {
     const speedUp = localStorage.getItem("speedUp");
 
     
-    // Only update if we have a saved value
     if (savedMoney) {
-        // Convert the string to a number using parseFloat
         currentMoney = parseFloat(savedMoney);
-        // Update the display with proper formatting
         moneyElement.textContent = "§ " + currentMoney;
 
 
@@ -97,30 +106,7 @@ function savedInfo() {
     }
 }
 
-// Set the function to run when the page loads
 window.onload = savedInfo;
-
-
-// EVENT LISTENERS
-manualClick.addEventListener("click", manualClicker)
-manualClickX2.addEventListener("click", manualUpgrade)
-gameSpeedx2.addEventListener("click", speedUpgrade)
-clickerLvl1.addEventListener("click", level1Clicker)
-clickerLvl2.addEventListener("click", level2Clicker)
-clickerLvl3.addEventListener("click", level3Clicker)
-clickerLvl4.addEventListener("click", level4Clicker)
-clearSave.addEventListener("click", clearData)
-
-
-
-// UPGRADES
-let level1Upgrades = 0;
-let level2Upgrades = 0;
-let level3Upgrades = 0;
-let level4Upgrades = 0;
-let manualClickerUpgrade = false;
-let gameSpeedUpgrade = false;
-
 
 function manualClicker() {
     if (manualClickerUpgrade === true) {
@@ -157,11 +143,12 @@ function level1Clicker() {
         
         level1Demon.innerHTML = `Lesser Demons: ${level1Upgrades}`
 
+        clickerLvl1.textContent = `§ ${cost}`
 
    } else {
     console.log("You do not have enough Money for this upgrade!")
    }
-    clickerLvl1Label.textContent = `§ ${cost}`
+
 }
 
 function level2Clicker() {
@@ -172,10 +159,11 @@ function level2Clicker() {
         MPS += 5
        
         level2Demon.innerHTML = `Lesser Demon Packs: ${level2Upgrades}`
+
+         clickerLvl2.textContent = `§ ${cost}`
     } else {
         console.log("You do not have enough Money for this upgrade!")
     }
-     clickerLvl2Label.textContent = `§ ${cost}`
  }
 
  function level3Clicker() {
@@ -189,7 +177,7 @@ function level2Clicker() {
     } else {
         console.log("You do not have enough Money for this upgrade!")
     }
-    clickerLvl3Label.textContent = "§" + cost
+    clickerLvl3.textContent = `§ ${cost}`
  }
 
  function level4Clicker() {
@@ -203,7 +191,7 @@ function level2Clicker() {
     } else {
         console.log("You do not have enough Money for this upgrade!")
     }
-    clickerLvl4Label.textContent = "§" + cost
+    clickerLvl4.textContent = `§ ${cost}`
  }
 
 
@@ -262,6 +250,7 @@ gameLoop = setInterval(function() {
 }
 }
 
+updateGameLoop()
 
 setInterval(function updateMoneyCount() {
     moneyElement.innerHTML  =`
@@ -276,7 +265,7 @@ setInterval(function updateMoneyCount() {
     }
 }, 10)
 
-updateGameLoop()
+
 
 function clearData() {
     localStorage.clear()
