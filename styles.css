@@ -30,6 +30,13 @@ body {
     font-weight: bold;
 }
 
+#logo img {
+    width: 360px;
+    position: relative;
+    align-self: center;
+    
+}
+
 #description {
     line-height: 36px;
     font-size: 26px;
