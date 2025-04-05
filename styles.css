@@ -145,22 +145,15 @@ button {
     font-size: 25px;
 }
 
-
-.git-hub-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 #github-profile {
     text-decoration: none;
     color: black;
     font-size: 24px;
     font-weight: 450;
+    position: absolute;
+    bottom: 0;
+    left: 2;
 
 
 }
 
-#github-profile img {
-    width: 75px;
-}
