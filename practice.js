@@ -165,7 +165,7 @@ function level1Clicker() {
 }
 
 function level2Clicker() {
-    let cost = Math.floor(lvl2BaseCost + (level2Upgrades ** 5.47))
+    let cost = Math.floor(lvl2BaseCost + (level2Upgrades ** 3.47))
     if (currentMoney >= cost) {
         currentMoney -= cost
         level2Upgrades++
@@ -179,7 +179,7 @@ function level2Clicker() {
  }
 
  function level3Clicker() {
-    let cost = Math.floor(lvl3BaseCost + (level3Upgrades ** 10.47))
+    let cost = Math.floor(lvl3BaseCost + (level3Upgrades ** 5.47))
     if (currentMoney >= cost) {
         currentMoney -= cost
         level3Upgrades++
@@ -193,7 +193,7 @@ function level2Clicker() {
  }
 
  function level4Clicker() {
-    let cost = Math.floor(lvl4BaseCost + (level4Upgrades ** 25.47))
+    let cost = Math.floor(lvl4BaseCost + (level4Upgrades ** 10.47))
     if (currentMoney >= cost) {
         currentMoney -= cost
         level4Upgrades++
