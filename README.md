@@ -49,4 +49,10 @@ the knowledge ive gained, I used AI to make the images, ∆the background and to
 
 ---
 
+## Still to Fix
+
+- Calculating and rendering new costs for upgrades on page load, currently when refreshing the page, upgrades display defaults back to baseCost value
+
+- After purchasing x2 clicks upgrade, button needs to change to greyed out version idicating purchase is no longer availbale 
+
 Feel free to contribute to this project by submitting issues or pull requests! 
