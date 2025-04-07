@@ -2,7 +2,7 @@
 const moneyElement = document.getElementById("clickers");
 const manualClick = document.getElementById("manual-clicker")
 const manualClickX2 = document.getElementById("manual-x2");
-const gameSpeedx2 = document.getElementById("game-speed")
+const gameSpeedx2 = document.getElementById("game-speed-x2")
 const clickerLvl1 = document.getElementById("lvl1-clicker");
 const clickerLvl2 = document.getElementById("lvl2-clicker");
 const clickerLvl3 = document.getElementById("lvl3-clicker");
@@ -15,17 +15,6 @@ const level1Demon = document.getElementById("level1-demon");
 const level2Demon = document.getElementById("level2-demon");
 const level3Demon = document.getElementById("level3-demon");
 const level4Demon = document.getElementById("level4-demon");
-
-
-// EVENT LISTENERS
-manualClick.addEventListener("click", manualClicker)
-manualClickX2.addEventListener("click", manualUpgrade)
-gameSpeedx2.addEventListener("click", speedUpgrade)
-clickerLvl1.addEventListener("click", level1Clicker)
-clickerLvl2.addEventListener("click", level2Clicker)
-clickerLvl3.addEventListener("click", level3Clicker)
-clickerLvl4.addEventListener("click", level4Clicker)
-clearSave.addEventListener("click", clearData)
 
 // BASECOSTS
 const lvl1BaseCost = 50;
@@ -43,6 +32,12 @@ let gameSpeedUpgrade = false;
 let MPS = 0;
 let currentMoney = 0;
 let gameLoop = null;
+
+const level1Cost = () => { return Math.floor(lvl1BaseCost + (level1Upgrades ** 1.87)) }
+const level2Cost = () => { return Math.floor(lvl2BaseCost + (level2Upgrades ** 3.47)) }
+const level3Cost = () => { return Math.floor(lvl3BaseCost + (level3Upgrades ** 5.47)) }
+const level4Cost = () => { return Math.floor(lvl4BaseCost + (level4Upgrades ** 10.47))}
+
 
 function savedInfo() {
     const savedMoney = localStorage.getItem("Money"); 
@@ -108,87 +103,84 @@ function savedInfo() {
 
 window.onload = savedInfo;
 
-function manualClicker() {
-    if (manualClickerUpgrade === true) {
-        currentMoney += 2
-    } else {
-        currentMoney++
-    }
-   
+const manualClicker = () => {if (manualClickerUpgrade) {
+    currentMoney += 2
+} else {
+    currentMoney++
+}}
+
+
+manualClick.addEventListener("click", manualClicker)
+
+const manualUpgrade = () => {if ((currentMoney >= 1000) && (!manualClickerUpgrade)) {
+    currentMoney -= 1000
+    manualClickerUpgrade = true
+    demon2Img.innerHTML = `<img src="img/11.png">`
+}}
+
+manualClickX2.addEventListener("click", manualUpgrade)
+
+const speedUpgrade = () => {if ((currentMoney >= 100) && (!gameSpeedUpgrade)) { 
+    currentMoney -= 100
+    gameSpeedUpgrade = true;
+    updateGameLoop()
+}}
+
+gameSpeedx2.addEventListener("click", speedUpgrade)
+
+
+const level1Clicker = () => {if (currentMoney >= level1Cost()) {
+    currentMoney -= level1Cost()
+    level1Upgrades++
+    MPS++
+    level1Demon.innerHTML = `Lesser Demons: ${level1Upgrades}`
+    
+} 
 }
 
-function manualUpgrade() {
-    if ((currentMoney >= 1000) && (manualClickerUpgrade === false)) {
-        currentMoney -= 1000
-        manualClickerUpgrade = true
-        demon2Img.innerHTML = `<img src="img/11.png">`
+clickerLvl1.addEventListener("click", level1Clicker)
 
-    }
+
+
+const level2Clicker = () => {if (currentMoney >= level2Cost()) {
+    currentMoney -= level2Cost()
+    level2Upgrades++
+    MPS += 5
+    level2Demon.innerHTML = `Lesser Demon Packs: ${level2Upgrades}`
+}}
+
+clickerLvl2.addEventListener("click", level2Clicker)
+
+
+
+
+const level3Clicker = () => { if (currentMoney >= level3Cost()) {
+    currentMoney -= level3Cost()
+    level3Upgrades++
+    MPS += 100
+    level3Demon.innerHTML = `Lesser Demon Armies: ${level3Upgrades}`
+}
 }
 
-function speedUpgrade() {
-    if ((currentMoney >= 10000000) && (gameSpeedUpgrade === false)) {
-        currentMoney -= 10000000
-        gameSpeedUpgrade = true
-        updateGameLoop()
-    }
+clickerLvl3.addEventListener("click", level3Clicker)
+
+
+const level4Clicker = () => { if (currentMoney >= level4Cost()) 
+    currentMoney -= level4Cost()
+    level4Upgrades++
+    MPS += 1000
+    level4Demon.innerHTML = `Demon Lords: ${level4Upgrades}`
+
 }
 
-function level1Clicker() {
-   let cost = Math.floor(lvl1BaseCost + (level1Upgrades ** 1.87))
-   if (currentMoney >= cost) {
-        currentMoney -= cost
-        level1Upgrades++
-        MPS++
-        level1Demon.innerHTML = `Lesser Demons: ${level1Upgrades}`
-        cost = Math.floor(lvl1BaseCost + (level1Upgrades ** 1.87))
-    } 
-    clickerLvl1.textContent = `§ ${cost}`
-}
-
-function level2Clicker() {
-    let cost = Math.floor(lvl2BaseCost + (level2Upgrades ** 3.47))
-    if (currentMoney >= cost) {
-        currentMoney -= cost
-        level2Upgrades++
-        MPS += 5
-        level2Demon.innerHTML = `Lesser Demon Packs: ${level2Upgrades}`
-        cost = Math.floor(lvl2BaseCost + (level2Upgrades ** 3.47))
-    }
-    clickerLvl2.textContent = `§ ${cost}`
-}
-
-function level3Clicker() {
-    let cost = Math.floor(lvl3BaseCost + (level3Upgrades ** 5.47))
-    if (currentMoney >= cost) {
-        currentMoney -= cost
-        level3Upgrades++
-        MPS += 100
-        level3Demon.innerHTML = `Lesser Demon Armies: ${level3Upgrades}`
-        cost = Math.floor(lvl3BaseCost + (level3Upgrades ** 5.47))
-    }
-    clickerLvl3.textContent = `§ ${cost}`
-}
-
-function level4Clicker() {
-    let cost = Math.floor(lvl4BaseCost + (level4Upgrades ** 10.47))
-    if (currentMoney >= cost) {
-        currentMoney -= cost
-        level4Upgrades++
-        MPS += 1000
-        level4Demon.innerHTML = `Demon Lords: ${level4Upgrades}`
-        cost = Math.floor(lvl4BaseCost + (level4Upgrades ** 10.47))
-    } 
-    clickerLvl4.textContent = `§ ${cost}`
-}
-
+clickerLvl4.addEventListener("click", level4Clicker)
 
 function updateGameLoop() {
 
 if (gameLoop) {
     clearInterval(gameLoop)
 }
-if (gameSpeedUpgrade === true) {
+if (gameSpeedUpgrade) {
 
 
 gameLoop = setInterval(function() {
@@ -224,7 +216,7 @@ gameLoop = setInterval(function() {
     localStorage.setItem("MPS", MPS)
     localStorage.setItem("manUp", manualClickerUpgrade)
     localStorage.setItem("speedUp", gameSpeedUpgrade)
-    console.clear()
+    // console.clear()
     console.log("Current Money: ", currentMoney)
     console.log("Money Per Second: ", MPS)
     console.log("Level 1 upgrades : ", level1Upgrades)
@@ -234,6 +226,7 @@ gameLoop = setInterval(function() {
     console.log("Manual Upgrade: ", manualClickerUpgrade)
     console.log("Game Speed: ", gameSpeedUpgrade)
     console.log("Game Speed is x1")
+    console.log("level 1 cost: ", level1Cost())
 }, 1000)
 }
 }
@@ -247,16 +240,27 @@ setInterval(function updateMoneyCount() {
     if (gameSpeedUpgrade === true) {
         gameInfo.textContent = "Game Speed is 2x.."
         mpsDisplay.textContent = "§" + (MPS * 2) + " Per Second" 
+        clickerLvl1.textContent = `§ ${level1Cost()}`
+        clickerLvl2.textContent = `§ ${level2Cost()}`
+        clickerLvl3.textContent = `§ ${level3Cost()}`
+        clickerLvl4.textContent = `§ ${level4Cost()}`
     } else {
         gameInfo.textContent = "Game Speed is 1x.."
         mpsDisplay.textContent = "§ " + MPS + " Per Second"
+        clickerLvl1.textContent = `§ ${level1Cost()}`
+        clickerLvl2.textContent = `§ ${level2Cost()}`
+        clickerLvl3.textContent = `§ ${level3Cost()}`
+        clickerLvl4.textContent = `§ ${level4Cost()}`
 
     }
 }, 10)
 
 
 
-function clearData() {
+const clearData = () => {
     localStorage.clear()
     location.reload()
 }
+
+clearSave.addEventListener("click", clearData)
+
