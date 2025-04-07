@@ -140,8 +140,6 @@ const level1Clicker = () => {if (currentMoney >= level1Cost()) {
 
 clickerLvl1.addEventListener("click", level1Clicker)
 
-
-
 const level2Clicker = () => {if (currentMoney >= level2Cost()) {
     currentMoney -= level2Cost()
     level2Upgrades++
@@ -150,9 +148,6 @@ const level2Clicker = () => {if (currentMoney >= level2Cost()) {
 }}
 
 clickerLvl2.addEventListener("click", level2Clicker)
-
-
-
 
 const level3Clicker = () => { if (currentMoney >= level3Cost()) {
     currentMoney -= level3Cost()
@@ -163,7 +158,6 @@ const level3Clicker = () => { if (currentMoney >= level3Cost()) {
 }
 
 clickerLvl3.addEventListener("click", level3Clicker)
-
 
 const level4Clicker = () => { if (currentMoney >= level4Cost()) 
     currentMoney -= level4Cost()
@@ -193,16 +187,6 @@ gameLoop = setInterval(function() {
     localStorage.setItem("MPS", MPS)
     localStorage.setItem("manUp", manualClickerUpgrade)
     localStorage.setItem("speedUp", gameSpeedUpgrade)
-    console.clear()
-    console.log("Current Money: ", currentMoney)
-    console.log("Money Per Second: ", MPS)
-    console.log("Level 1 upgrades : ", level1Upgrades)
-    console.log("Level 2 upgrades : ", level2Upgrades)
-    console.log("Level 3 upgrades: ", level3Upgrades)
-    console.log("Level 4 upgrades: ", level4Upgrades)
-    console.log("Manual Upgrade: ", manualClickerUpgrade)
-    console.log("Game Speed: ", gameSpeedUpgrade)
-    console.log("Game Speed is x2")
 }, 500)
 } else {
 
@@ -216,17 +200,6 @@ gameLoop = setInterval(function() {
     localStorage.setItem("MPS", MPS)
     localStorage.setItem("manUp", manualClickerUpgrade)
     localStorage.setItem("speedUp", gameSpeedUpgrade)
-    // console.clear()
-    console.log("Current Money: ", currentMoney)
-    console.log("Money Per Second: ", MPS)
-    console.log("Level 1 upgrades : ", level1Upgrades)
-    console.log("Level 2 upgrades : ", level2Upgrades)
-    console.log("Level 3 upgrades: ", level3Upgrades)
-    console.log("Level 4 upgrades: ", level4Upgrades)
-    console.log("Manual Upgrade: ", manualClickerUpgrade)
-    console.log("Game Speed: ", gameSpeedUpgrade)
-    console.log("Game Speed is x1")
-    console.log("level 1 cost: ", level1Cost())
 }, 1000)
 }
 }
@@ -254,8 +227,6 @@ setInterval(function updateMoneyCount() {
 
     }
 }, 10)
-
-
 
 const clearData = () => {
     localStorage.clear()
