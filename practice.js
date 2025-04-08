@@ -159,12 +159,12 @@ const level3Clicker = () => { if (currentMoney >= level3Cost()) {
 
 clickerLvl3.addEventListener("click", level3Clicker)
 
-const level4Clicker = () => { if (currentMoney >= level4Cost()) 
+const level4Clicker = () => { if (currentMoney >= level4Cost()) { 
     currentMoney -= level4Cost()
     level4Upgrades++
     MPS += 1000
     level4Demon.innerHTML = `Demon Lords: ${level4Upgrades}`
-
+    }
 }
 
 clickerLvl4.addEventListener("click", level4Clicker)
