@@ -120,8 +120,8 @@ const manualUpgrade = () => {if ((currentMoney >= 1000) && (!manualClickerUpgrad
 
 manualClickX2.addEventListener("click", manualUpgrade)
 
-const speedUpgrade = () => {if ((currentMoney >= 100) && (!gameSpeedUpgrade)) { 
-    currentMoney -= 100
+const speedUpgrade = () => {if ((currentMoney >= 1000000) && (!gameSpeedUpgrade)) { 
+    currentMoney -= 1000000
     gameSpeedUpgrade = true;
     updateGameLoop()
 }}
