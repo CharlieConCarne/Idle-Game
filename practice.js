@@ -178,7 +178,7 @@ if (gameSpeedUpgrade) {
 
 
 gameLoop = setInterval(function() {
-    currentMoney += MPS
+    currentMoney += MPS;
     localStorage.setItem("Money", currentMoney)
     localStorage.setItem("lvl1", level1Upgrades)
     localStorage.setItem("lvl2", level2Upgrades)
@@ -191,7 +191,7 @@ gameLoop = setInterval(function() {
 } else {
 
 gameLoop = setInterval(function() {
-    currentMoney += MPS
+    currentMoney += MPS;
     localStorage.setItem("Money", currentMoney)
     localStorage.setItem("lvl1", level1Upgrades)
     localStorage.setItem("lvl2", level2Upgrades)
@@ -208,7 +208,7 @@ updateGameLoop()
 
 setInterval(function updateMoneyCount() {
     moneyElement.innerHTML  =`
-    § ${currentMoney}`
+    § ${currentMoney.toLocaleString()}`
 
     if (gameSpeedUpgrade === true) {
         gameInfo.textContent = "Game Speed is 2x.."

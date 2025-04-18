@@ -1,6 +1,6 @@
 
-
 body {
+    overflow: hidden;
     background-image: url(img/background.png);
     background-position: center;
     background-size: 110% 100%;
@@ -10,11 +10,6 @@ body {
     font-family: "Spectral", serif;
     font-weight: 300;
     font-style: normal;
-}
-
-
-#manual-clicker:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa)
 }
 
 .body-styling {
@@ -65,6 +60,7 @@ button {
     border: none;
     background-color: transparent;
     background: transparent;
+    transition-duration: 0.3s;
 }
 
 .score-info {
@@ -99,6 +95,15 @@ button {
     border-radius: 5px;
     width: 100px;
     align-self: center;
+}
+
+#manual-clicker img {
+    transform: scale(1.2);
+    transition-duration: 2s;
+}
+
+#manual-clicker img:hover {
+    filter: drop-shadow(0 0 4em #61dafbaa)
 }
 
 
