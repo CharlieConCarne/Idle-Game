@@ -1,3 +1,16 @@
+/* styling classes */
+#manual-clicker.hell img:hover {
+     
+    filter: drop-shadow(0 0 10em #ef4b4baa)
+
+}
+
+#manual-clicker.earth img:hover {
+        transform: scale(1.02);
+        filter: drop-shadow(0 0 10em #61dafbaa)
+    
+}
+
 
 body {
     overflow: hidden;
@@ -98,14 +111,8 @@ button {
 }
 
 #manual-clicker img {
-    transform: scale(1.2);
     transition-duration: 2s;
 }
-
-#manual-clicker img:hover {
-    filter: drop-shadow(0 0 4em #61dafbaa)
-}
-
 
 .upgrades-container {
     display: flex;

@@ -1,6 +1,6 @@
 // VARIABLES 
 const moneyElement = document.getElementById("clickers");
-const manualClick = document.getElementById("manual-clicker")
+const manualClick = document.getElementById("manual-clicker");
 const manualClickX2 = document.getElementById("manual-x2");
 const gameSpeedx2 = document.getElementById("game-speed-x2")
 const clickerLvl1 = document.getElementById("lvl1-clicker");
@@ -104,8 +104,10 @@ function savedInfo() {
 window.onload = savedInfo;
 
 const manualClicker = () => {if (manualClickerUpgrade) {
+    hellTransition()
     currentMoney += 2
 } else {
+    hellTransition()
     currentMoney++
 }}
 
@@ -231,6 +233,15 @@ setInterval(function updateMoneyCount() {
 const clearData = () => {
     localStorage.clear()
     location.reload()
+}
+
+const hellTransition = () => {
+    if (MPS >= 100) {
+        manualClick.classList.remove("earth")
+        manualClick.classList.add("hell")
+    } else {
+        manualClick.classList.add("earth")
+    }
 }
 
 clearSave.addEventListener("click", clearData)
